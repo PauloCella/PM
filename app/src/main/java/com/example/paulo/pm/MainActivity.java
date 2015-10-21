@@ -1,5 +1,6 @@
 package com.example.paulo.pm;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+
+        if (id == R.id.action_about) {
+            Intent i = new Intent(MainActivity.this, SplashAboutActivity.class);
+            startActivity(i);
+            return true; // aqui faze a logica para mostrar, talvez um splash ou outra tela;
         }
 
         return super.onOptionsItemSelected(item);

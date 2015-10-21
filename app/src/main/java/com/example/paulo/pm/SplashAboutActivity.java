@@ -1,36 +1,25 @@
 package com.example.paulo.pm;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class splashActivity extends AppCompatActivity {
-
-    private static int TEMPO_SPLASH = 1000;
+public class SplashAboutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent i = new Intent(splashActivity.this, MainActivity.class);
-                startActivity(i);
-                finish();
-            }
-        }, TEMPO_SPLASH);
+        setContentView(R.layout.activity_splash_about);
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_splash, menu);
+        getMenuInflater().inflate(R.menu.menu_splash_about, menu);
         return true;
     }
 
@@ -43,6 +32,11 @@ public class splashActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+        if (id == R.id.action_about) {
+            Intent i = new Intent(SplashAboutActivity.this, MainActivity.class);
+            startActivity(i);
             return true;
         }
 
